@@ -1,1 +1,1 @@
-# MachineLearningNotes
+# Lectures On Machine Learning
