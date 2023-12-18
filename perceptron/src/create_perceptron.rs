@@ -28,4 +28,12 @@ impl Perceptron {
       -1.0
     }
   }
+
+  fn train(&mut self, inputs: &[f64], target: f64){
+    let guess = self.predict(inputs);
+    let error = target - guess;
+    for i in 0..self.weights.len() {
+      self.weights[i] += self.learning_rate * error * inputs[i];
+    }
+  }
 }
