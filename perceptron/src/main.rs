@@ -1,4 +1,5 @@
 mod create_perceptron;
+mod activation_functions;
 use create_perceptron::Perceptron;
 
 fn main() {
