@@ -20,8 +20,10 @@ impl Perceptron {
         let guess = self.predict(inputs);
         let error = target - guess;
 
-        for i in 0..self.weights.len() {
-            self.weights[i] += self.learning_rate * error * inputs[i];
+        if error != 0.0 {
+            for i in 0..inputs.len() {
+                self.weights[i] += self.learning_rate * error * inputs[i]
+            }
         }
     }
 
