@@ -1,5 +1,3 @@
-use std::collections::btree_map::Keys;
-
 use rand::{thread_rng, Rng};
 
 pub struct Perceptron {
