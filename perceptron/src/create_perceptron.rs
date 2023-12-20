@@ -24,6 +24,7 @@ impl Perceptron {
         let error = target - guess;
 
         if error != 0.0 {
+            println!("updating weights");
             for i in 0..inputs.len() {
                 self.weights[i] += self.learning_rate * error * inputs[i]
             }
