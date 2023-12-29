@@ -3,5 +3,5 @@ mod activation_functions;
 use layer::Layer;
 
 fn main() {
-    println!("Hello, world!");
+    let layer = Layer::new(3, 4);
 }
