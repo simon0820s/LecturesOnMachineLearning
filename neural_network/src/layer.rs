@@ -24,4 +24,12 @@ impl Layer {
     }
   }
 
+  pub fn getBias(&self) -> &Vec<f64> {
+    &self.bias
+  }
+
+  pub fn getWeights(&self) -> &Vec<Vec<f64>> {
+    &self.weights
+  }
+
 }
