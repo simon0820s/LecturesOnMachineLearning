@@ -7,11 +7,10 @@ pub struct Perceptron {
 }
 
 impl Perceptron {
-
     pub fn new(input_size: usize, learning_rate: f64) -> Perceptron {
         let mut rng = thread_rng();
         let weights: Vec<f64> = (0..input_size).map(|_| rng.gen_range(-1.0..1.0)).collect();
-        let bias: f64 =rng.gen_range(-1.0..1.0);
+        let bias: f64 = rng.gen_range(-1.0..1.0);
         Perceptron {
             weights,
             bias,
@@ -43,5 +42,9 @@ impl Perceptron {
 
     pub fn get_weights(&self) -> &Vec<f64> {
         &self.weights
+    }
+
+    pub fn get_bias(&self) -> f64 {
+        self.bias
     }
 }
