@@ -18,10 +18,19 @@ impl Perceptron {
         }
     }
 
-    pub fn train(&mut self, inputs: &[f64], target: f64) {
+    pub fn train(&mut self, train_data: &[(&[f64], f64)], epochs: i32) {
+        for _ in 0..epochs {
+            for data in train_data {
+                self.train_single(data);
+            }
+        }
+    }
+
+    fn train_single(&mut self, train_data: &(&[f64], f64)) {
+        let (inputs, target) = train_data;
         let guess = self.predict(inputs);
         let error = target - guess;
-
+    
         if error != 0.0 {
             println!("updating weights");
             for i in 0..inputs.len() {
@@ -30,7 +39,7 @@ impl Perceptron {
             }
         }
     }
-
+    
     pub fn predict(&self, inputs: &[f64]) -> f64 {
         let mut summation = 0.0;
         for i in 0..inputs.len() {

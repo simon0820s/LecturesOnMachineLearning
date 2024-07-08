@@ -1,5 +1,5 @@
-mod create_perceptron;
 mod activation_functions;
+mod create_perceptron;
 use create_perceptron::Perceptron;
 
 fn main() {
@@ -7,14 +7,13 @@ fn main() {
     let mut p = Perceptron::new(2, 0.1);
     println!("Init weights: {:?}", p.get_weights());
     println!("Init bias: {:?}", p.get_bias());
-    let training_data = vec![(vec![0.0, 0.0], 0.0), (vec![0.0, 1.0], 1.0), (vec![1.0, 0.0], 1.0), (vec![1.0, 1.0], 1.0)];
-
-    for _ in 0..epochs {
-        for &(ref inputs, target) in &training_data {
-            p.train(&inputs, target)
-        }
-    }
-
+    let training_data: &[(&[f64], f64)] = &[
+        (&[0.0, 0.0], 0.0),
+        (&[0.0, 1.0], 1.0),
+        (&[1.0, 0.0], 1.0),
+        (&[1.0, 1.0], 1.0),
+    ];
+    p.train(&training_data, epochs);
     println!("Trained weights: {:?}", p.get_weights());
     println!("Trained bias: {:?}", p.get_bias());
 
