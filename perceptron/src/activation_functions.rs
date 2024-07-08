@@ -1,4 +1,4 @@
-pub mod activation_functions {
+pub mod functions{
 
     pub fn step(summation: f64) -> f64 {
         if summation > 0.0 {

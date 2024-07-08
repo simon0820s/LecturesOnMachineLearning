@@ -1,10 +1,12 @@
 mod activation_functions;
+use activation_functions::functions as functions;
 mod create_perceptron;
 use create_perceptron::Perceptron;
 
+
 fn main() {
     let epochs = 20;
-    let mut p = Perceptron::new(2, 0.1);
+    let mut p = Perceptron::new(2, 0.1, functions::step);
     println!("Init weights: {:?}", p.get_weights());
     println!("Init bias: {:?}", p.get_bias());
     let training_data: &[(&[f64], f64)] = &[
