@@ -23,7 +23,8 @@ impl LayerParams {
     }
 }
 pub struct Layer {
-  perceptrons: Vec<Perceptron>,
+    perceptrons: Vec<Perceptron>,
+    layer_type: String,
 }
 
 impl Layer {
@@ -38,6 +39,7 @@ impl Layer {
                     )
                 })
                 .collect(),
+            layer_type: "Dense".to_string(),
         }
     }
 
@@ -48,5 +50,13 @@ impl Layer {
             .map(|perceptron| perceptron.get_weights())
             .collect();
         weights_matrix
+    }
+
+    pub fn get_layer_type(&self) -> &str {
+        &self.layer_type
+    }
+
+    pub fn get_layer_output(&self) -> usize {
+        self.perceptrons.len()
     }
 }

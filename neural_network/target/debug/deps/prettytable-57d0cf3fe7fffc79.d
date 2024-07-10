@@ -1,0 +1,10 @@
+C:\Users\simon\Desktop\programacion\myProjects\lecturesOnMachineLearning\neural_network\target\debug\deps\libprettytable-57d0cf3fe7fffc79.rmeta: C:\Users\simon\.cargo\registry\src\index.crates.io-6f17d22bba15001f\prettytable-0.10.0\src\lib.rs C:\Users\simon\.cargo\registry\src\index.crates.io-6f17d22bba15001f\prettytable-0.10.0\src\cell.rs C:\Users\simon\.cargo\registry\src\index.crates.io-6f17d22bba15001f\prettytable-0.10.0\src\format.rs C:\Users\simon\.cargo\registry\src\index.crates.io-6f17d22bba15001f\prettytable-0.10.0\src\row.rs C:\Users\simon\.cargo\registry\src\index.crates.io-6f17d22bba15001f\prettytable-0.10.0\src\utils.rs C:\Users\simon\.cargo\registry\src\index.crates.io-6f17d22bba15001f\prettytable-0.10.0\src\csv.rs
+
+C:\Users\simon\Desktop\programacion\myProjects\lecturesOnMachineLearning\neural_network\target\debug\deps\prettytable-57d0cf3fe7fffc79.d: C:\Users\simon\.cargo\registry\src\index.crates.io-6f17d22bba15001f\prettytable-0.10.0\src\lib.rs C:\Users\simon\.cargo\registry\src\index.crates.io-6f17d22bba15001f\prettytable-0.10.0\src\cell.rs C:\Users\simon\.cargo\registry\src\index.crates.io-6f17d22bba15001f\prettytable-0.10.0\src\format.rs C:\Users\simon\.cargo\registry\src\index.crates.io-6f17d22bba15001f\prettytable-0.10.0\src\row.rs C:\Users\simon\.cargo\registry\src\index.crates.io-6f17d22bba15001f\prettytable-0.10.0\src\utils.rs C:\Users\simon\.cargo\registry\src\index.crates.io-6f17d22bba15001f\prettytable-0.10.0\src\csv.rs
+
+C:\Users\simon\.cargo\registry\src\index.crates.io-6f17d22bba15001f\prettytable-0.10.0\src\lib.rs:
+C:\Users\simon\.cargo\registry\src\index.crates.io-6f17d22bba15001f\prettytable-0.10.0\src\cell.rs:
+C:\Users\simon\.cargo\registry\src\index.crates.io-6f17d22bba15001f\prettytable-0.10.0\src\format.rs:
+C:\Users\simon\.cargo\registry\src\index.crates.io-6f17d22bba15001f\prettytable-0.10.0\src\row.rs:
+C:\Users\simon\.cargo\registry\src\index.crates.io-6f17d22bba15001f\prettytable-0.10.0\src\utils.rs:
+C:\Users\simon\.cargo\registry\src\index.crates.io-6f17d22bba15001f\prettytable-0.10.0\src\csv.rs:

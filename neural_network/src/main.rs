@@ -15,4 +15,5 @@ fn main() {
     println!("layer 2 weights => {:?}", layer2.get_weights());
     network.add_layer(layer1);
     network.add_layer(layer2);
+    network.get_summary();
 }
