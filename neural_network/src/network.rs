@@ -30,6 +30,13 @@ impl Network {
         outputs
     }
 
+    pub fn train(&mut self, train_data: &[(&[f64], f64)], epochs: i32) {
+        for _ in 0..epochs {
+            for data in train_data {
+            }
+        }
+    }
+
     pub fn get_summary(&self) {
         let mut table = Table::new();
 

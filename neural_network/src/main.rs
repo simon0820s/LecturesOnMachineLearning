@@ -1,18 +1,33 @@
-mod layer;
 mod activation_functions;
-mod perceptron;
+mod layer;
 mod network;
-use activation_functions::activation_functions::step;
+mod perceptron;
+use activation_functions::activation_functions::{relu, step};
 use layer::{Layer, LayerParams};
 
 fn main() {
-    let layer1_params = LayerParams::new(2, 2, step, 0.001 );
-    let layer2_params = LayerParams::new(2, 1, step, 0.001 );
+    let train_data: &[(&[f64], f64)] = &[
+        (&[0.0, 0.0], 0.0),
+        (&[1.0, 0.0], 0.0),
+        (&[0.0, 1.0], 0.0),
+        (&[1.0, 1.0], 1.0),
+    ];
+    let epochs = 4;
+    let layer1_params = LayerParams::new(2, 2, relu, 0.001);
+    let layer2_params = LayerParams::new(2, 1, step, 0.001);
     let layer1 = Layer::new(&layer1_params);
     let layer2 = Layer::new(&layer2_params);
     let mut network = network::Network::new(2);
     network.add_layer(layer1);
     network.add_layer(layer2);
     network.get_summary();
-    println!("Prediction: {:?}", network.predict(vec![1., 1.]));
+    println!(
+        "Prediction before train: {:?}",
+        network.predict(vec![1., 1.])
+    );
+    network.train(train_data, epochs);
+    println!(
+        "Prediction after train: {:?}",
+        network.predict(vec![1., 1.])
+    );
 }
