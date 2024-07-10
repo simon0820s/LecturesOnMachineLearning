@@ -34,7 +34,6 @@ impl Layer {
                 .map(|_| {
                     Perceptron::new(
                         layer_params.input_size,
-                        layer_params.learning_rate,
                         layer_params.activation_function,
                     )
                 })
@@ -43,13 +42,11 @@ impl Layer {
         }
     }
 
-    pub fn get_weights(&self) -> Vec<&Vec<f64>> {
-        let weights_matrix: Vec<&Vec<f64>> = self
-            .perceptrons
+    pub fn predict(&self, inputs: &[f64]) -> Vec<f64> {
+        self.perceptrons
             .iter()
-            .map(|perceptron| perceptron.get_weights())
-            .collect();
-        weights_matrix
+            .map(|perceptron| perceptron.predict(inputs))
+            .collect()
     }
 
     pub fn get_layer_type(&self) -> &str {

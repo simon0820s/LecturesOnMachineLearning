@@ -1,4 +1,4 @@
-use prettytable::{format, Cell, Row, Table};
+use prettytable::{Cell, Row, Table};
 use std::usize;
 
 use crate::layer::Layer;
@@ -18,6 +18,14 @@ impl Network {
 
     pub fn add_layer(&mut self, layer: Layer) {
         self.layers.push(layer);
+    }
+
+    pub fn predict(&self, inputs: Vec<f64>) -> Vec<f64> {
+        let mut outputs = inputs;
+        for layer in self.layers.iter() {
+            outputs = layer.predict(&outputs);
+        }
+        outputs
     }
 
     pub fn get_summary(&self) {

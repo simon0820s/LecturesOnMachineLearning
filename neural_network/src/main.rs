@@ -11,9 +11,8 @@ fn main() {
     let layer1 = Layer::new(layer1_params);
     let layer2 = Layer::new(layer2_params);
     let mut network = network::Network::new(2);
-    println!("layer 1 weights => {:?}", layer1.get_weights());
-    println!("layer 2 weights => {:?}", layer2.get_weights());
     network.add_layer(layer1);
     network.add_layer(layer2);
     network.get_summary();
+    network.predict(vec![1.0]);
 }
