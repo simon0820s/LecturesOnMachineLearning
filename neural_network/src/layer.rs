@@ -1,18 +1,18 @@
 use crate::perceptron::Perceptron;
 
 pub struct LayerParams {
-    neurons_amount: usize,
-    learning_rate: f64,
-    activation_function: fn(f64) -> f64,
     input_size: usize,
+    neurons_amount: usize,
+    activation_function: fn(f64) -> f64,
+    learning_rate: f64,
 }
 
 impl LayerParams {
     pub fn new(
-        neurons_amount: usize,
-        learning_rate: f64,
-        activation_function: fn(f64) -> f64,
         input_size: usize,
+        neurons_amount: usize,
+        activation_function: fn(f64) -> f64,
+        learning_rate: f64,
     ) -> LayerParams {
         LayerParams {
             neurons_amount,
@@ -28,15 +28,10 @@ pub struct Layer {
 }
 
 impl Layer {
-    pub fn new(layer_params: LayerParams) -> Layer {
+    pub fn new(layer_params: &LayerParams) -> Layer {
         Layer {
             perceptrons: (0..layer_params.neurons_amount)
-                .map(|_| {
-                    Perceptron::new(
-                        layer_params.input_size,
-                        layer_params.activation_function,
-                    )
-                })
+                .map(|_| Perceptron::new(layer_params.input_size, layer_params.activation_function))
                 .collect(),
             layer_type: "Dense".to_string(),
         }

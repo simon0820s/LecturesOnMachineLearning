@@ -20,10 +20,11 @@ impl Perceptron {
     pub fn predict(&self, inputs: &[f64]) -> f64 {
         let mut summation = 0.0;
         for (i, input) in inputs.iter().enumerate() {
-            println!("{}", i);
             summation += input * self.weights[i] + self.bias;
         }
 
-        (self.activation_function)(summation)
+        let output = (self.activation_function)(summation);
+        println!("perceptron output: {}", output);
+        output
     }
 }

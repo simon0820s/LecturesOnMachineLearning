@@ -22,8 +22,10 @@ impl Network {
 
     pub fn predict(&self, inputs: Vec<f64>) -> Vec<f64> {
         let mut outputs = inputs;
-        for layer in self.layers.iter() {
+        for (i, layer) in self.layers.iter().enumerate() {
+            println!("Layer: {}", i);
             outputs = layer.predict(&outputs);
+            println!("Layer: {} outPuts: {:?}", i, outputs);
         }
         outputs
     }
