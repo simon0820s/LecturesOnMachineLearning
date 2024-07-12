@@ -4,7 +4,6 @@ pub struct LayerParams {
     input_size: usize,
     neurons_amount: usize,
     activation_function: fn(f64) -> f64,
-    learning_rate: f64,
 }
 
 impl LayerParams {
@@ -12,11 +11,9 @@ impl LayerParams {
         input_size: usize,
         neurons_amount: usize,
         activation_function: fn(f64) -> f64,
-        learning_rate: f64,
     ) -> LayerParams {
         LayerParams {
             neurons_amount,
-            learning_rate,
             activation_function,
             input_size,
         }

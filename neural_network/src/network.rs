@@ -6,13 +6,15 @@ use crate::layer::Layer;
 pub struct Network {
     input_size: usize,
     layers: Vec<Layer>,
+    learning_rate: f64,
 }
 
 impl Network {
-    pub fn new(input_size: usize) -> Network {
+    pub fn new(input_size: usize, learning_rate: f64) -> Network {
         Network {
             input_size,
             layers: Vec::new(),
+            learning_rate
         }
     }
 
@@ -20,8 +22,8 @@ impl Network {
         self.layers.push(layer);
     }
 
-    pub fn predict(&self, inputs: Vec<f64>) -> Vec<f64> {
-        let mut outputs = inputs;
+    pub fn predict(&self, inputs: &[f64]) -> Vec<f64> {
+        let mut outputs = inputs.to_vec();
         for (i, layer) in self.layers.iter().enumerate() {
             println!("Layer: {}", i);
             outputs = layer.predict(&outputs);
