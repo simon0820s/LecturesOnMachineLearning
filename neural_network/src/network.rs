@@ -35,6 +35,8 @@ impl Network {
     pub fn train(&mut self, train_data: &[(&[f64], f64)], epochs: i32) {
         for _ in 0..epochs {
             for data in train_data {
+                let prediction = self.predict(data.0);
+                let error = data.1 - prediction[0];
             }
         }
     }

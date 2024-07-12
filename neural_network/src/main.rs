@@ -21,13 +21,13 @@ fn main() {
     network.add_layer(layer1);
     network.add_layer(layer2);
     network.get_summary();
-    println!(
-        "Prediction before train: {:?}",
-        network.predict(vec![1., 1.])
-    );
+    // println!(
+    //     "Prediction before train: {:?}",
+    //     network.predict(&[1., 1.])
+    // );
     network.train(train_data, epochs);
     println!(
         "Prediction after train: {:?}",
-        network.predict(vec![1., 1.])
+        network.predict(&[1., 1.])
     );
 }
