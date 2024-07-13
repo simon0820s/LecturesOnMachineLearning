@@ -7,14 +7,16 @@ pub struct Network {
     input_size: usize,
     layers: Vec<Layer>,
     learning_rate: f64,
+    cost_function: fn(&[f64], &[f64]) -> f64,
 }
 
 impl Network {
-    pub fn new(input_size: usize, learning_rate: f64) -> Network {
+    pub fn new(input_size: usize, learning_rate: f64, cost_function: fn(&[f64], &[f64]) -> f64) -> Network {
         Network {
             input_size,
             layers: Vec::new(),
-            learning_rate
+            learning_rate,
+            cost_function
         }
     }
 

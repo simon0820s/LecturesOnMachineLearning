@@ -1,8 +1,8 @@
-mod activation_functions;
+mod functions;
 mod layer;
 mod network;
 mod perceptron;
-use activation_functions::activation_functions::{relu, step};
+use functions::functions::{relu, step, mean_squared_error};
 use layer::{Layer, LayerParams};
 
 fn main() {
@@ -17,7 +17,7 @@ fn main() {
     let layer2_params = LayerParams::new(2, 1, step);
     let layer1 = Layer::new(&layer1_params);
     let layer2 = Layer::new(&layer2_params);
-    let mut network = network::Network::new(2, 0.0001);
+    let mut network = network::Network::new(2, 0.0001, mean_squared_error);
     network.add_layer(layer1);
     network.add_layer(layer2);
     network.get_summary();
