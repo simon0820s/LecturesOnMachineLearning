@@ -6,17 +6,15 @@ use crate::layer::Layer;
 pub struct Network {
     input_size: usize,
     layers: Vec<Layer>,
-    learning_rate: f64,
     cost_function: fn(&[f64], &[f64]) -> f64,
 }
 
 impl Network {
-    pub fn new(input_size: usize, learning_rate: f64, cost_function: fn(&[f64], &[f64]) -> f64) -> Network {
+    pub fn new(input_size: usize, cost_function: fn(&[f64], &[f64]) -> f64) -> Network {
         Network {
             input_size,
             layers: Vec::new(),
-            learning_rate,
-            cost_function
+            cost_function,
         }
     }
 
@@ -34,13 +32,25 @@ impl Network {
         outputs
     }
 
-    pub fn train(&mut self, train_data: &[(&[f64], f64)], epochs: i32) {
+    pub fn train(&mut self, train_data: &[(&[f64], f64)], epochs: i32, learning_rate: f64) {
         for _ in 0..epochs {
-            for (inputs, outputs)in train_data {
+            for (inputs, expected_outputs) in train_data {
                 let prediction = self.predict(&inputs);
-                let error = (self.cost_function)(&[outputs - prediction[0]], &[*outputs]);
+                let error =
+                    (self.cost_function)(&[expected_outputs - prediction[0]], &[*expected_outputs]);
+                self.back_propagate(inputs, &prediction, expected_outputs, learning_rate);
             }
         }
+    }
+
+    fn back_propagate(
+        &mut self,
+        inputs: &[f64],
+        prediction: &[f64],
+        expected_output: &f64,
+        learning_rate: f64,
+    ) {
+        
     }
 
     pub fn get_summary(&self) {
@@ -60,7 +70,10 @@ impl Network {
         }
 
         // Agrega la fila de total de parámetros
-        table.add_row(Row::new(vec![Cell::new("Input size:"), Cell::new(&format!("{}", self.input_size))]));
+        table.add_row(Row::new(vec![
+            Cell::new("Input size:"),
+            Cell::new(&format!("{}", self.input_size)),
+        ]));
         table.add_row(Row::new(vec![Cell::new("Total params:"), Cell::new("0")]));
         table.add_row(Row::new(vec![
             Cell::new("Trainable params:"),

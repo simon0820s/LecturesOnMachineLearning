@@ -17,7 +17,7 @@ fn main() {
     let layer2_params = LayerParams::new(2, 1, step);
     let layer1 = Layer::new(&layer1_params);
     let layer2 = Layer::new(&layer2_params);
-    let mut network = network::Network::new(2, 0.0001, mean_squared_error);
+    let mut network = network::Network::new(2, mean_squared_error);
     network.add_layer(layer1);
     network.add_layer(layer2);
     network.get_summary();
@@ -25,7 +25,7 @@ fn main() {
     //     "Prediction before train: {:?}",
     //     network.predict(&[1., 1.])
     // );
-    network.train(train_data, epochs);
+    network.train(train_data, epochs, 0.0001);
     println!(
         "Prediction after train: {:?}",
         network.predict(&[1., 1.])
